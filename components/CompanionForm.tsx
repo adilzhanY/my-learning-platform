@@ -43,7 +43,7 @@ const formSchema = z.object({
   style: z.string().min(1, {
     message: "Style is required.",
   }),
-  duration: z.number().min(1, {
+  duration: z.coerce.number().min(1, {
     message: "Duration is required.",
   }),
 })
