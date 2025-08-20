@@ -18,7 +18,7 @@ const Page = async() => {
           <CompanionCard
             key={companion.id}
             {...companion}
-            color={getSubjectColor(companion.color)}
+            color={getSubjectColor(companion.subject)}
           />
         ))}
         

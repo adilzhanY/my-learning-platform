@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { SavedCompanionsProvider } from "@/components/SavedCompanionsProvider";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
@@ -24,8 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${bricolage.variable} antialiased`}>
         <ClerkProvider appearance={{variables: {colorPrimary: '#fe5933'}}}>
-          <Navbar/>
-        {children}
+          <SavedCompanionsProvider>
+            <Navbar/>
+            {children}
+          </SavedCompanionsProvider>
         </ClerkProvider>
       </body>
     </html>
