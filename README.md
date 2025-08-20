@@ -58,27 +58,6 @@ Clerk handles:
 - Session + user management (Sign‑in / Sign‑up route grouping under `app/sign-in`).
 - Per‑request `auth()` used to stamp `author` / `user_id` fields.
 
-Future Enhancements (Roadmap):
-- Row Level Security policies in Supabase (tightening per‑user data visibility).
-- Feature / plan gates already scaffolded via `has({ plan | feature })` pattern in `newCompanionPermissions`.
-
-## 🗄 Data Model (Conceptual)
-Companion
-- id (uuid)
-- name
-- subject (enum from constants)
-- topic (text)
-- voice (male/female)
-- style (formal/casual)
-- duration (estimated minutes)
-- author (Clerk userId)
-
-Session History
-- id
-- companion_id (fk -> companions)
-- user_id (Clerk userId)
-- created_at (timestamp)
-
 ## 🗣 Realtime Voice Stack
 Vapi Web SDK + ElevenLabs voice + Deepgram transcription + OpenAI GPT‑4 reasoning. The assistant spec is created on the fly with tunable style parameters (stability, similarityBoost, speed, style). Events consumed:
 - `call-start` / `call-end`
